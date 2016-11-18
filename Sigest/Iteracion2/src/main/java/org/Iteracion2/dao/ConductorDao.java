@@ -13,11 +13,13 @@ public class ConductorDao {
 	public Conductor findByDni(String dni) throws HibernateException {
 		Conductor conductor = null;
         try {
+        	        	
             startOperation();
             Query query=session.createQuery("from Conductor where dni=?");
             query.setParameter(0, dni);
             driver = (Conductor) query.getSingleResult();
             transaction.commit();
+            
         } catch (HibernateException e) {
             throw e;
         } finally {
