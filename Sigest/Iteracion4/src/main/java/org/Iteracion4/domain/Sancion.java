@@ -1,5 +1,3 @@
-package org.Iteracion3.domain;
-import org.Iteracion3.dao.*;
 
 public class Sancion {
 	private int id;
