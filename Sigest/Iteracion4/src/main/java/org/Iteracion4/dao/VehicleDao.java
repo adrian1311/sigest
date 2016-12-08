@@ -1,28 +1,29 @@
-package dao;
+package org.Iteracion4.dao;
 
 import org.hibernate.HibernateException;
 import javax.persistence.Query;
 
-import domain.Conductor;
+import org.Iteracion4.domain.Driver;
+import org.Iteracion4.domain.Vehicle;
 
-public class VehiculoDao extends GeneralDao<Vehiculo> {
+public class VehicleDao extends GeneralDao<Vehicle> {
 	public VehicleDao() {
 		super();
 	}
 	
-	public Vehiculo findByLicense(String matricula) throws HibernateException {
-		Vehiculo vehiculo = null;
+	public Vehicle findByLicense(String matricula) throws HibernateException {
+		Vehicle vehiculo = null;
         try {
             startOperation();
             Query query=session.createQuery("from Vehiculo where matricula=?");
             query.setParameter(0, matricula);
-            vehiculo = (Vehiculo) query.getSingleResult();
+            vehiculo = (Vehicle) query.getSingleResult();
             transaction.commit();
         } catch (HibernateException e) {
             throw e;
         } finally {
             HibernateFactory.close(session);
         }
-        return vehicle;
+        return vehiculo;
 	}
 }

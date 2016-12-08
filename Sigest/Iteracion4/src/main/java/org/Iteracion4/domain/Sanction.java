@@ -1,24 +1,30 @@
+package org.Iteracion4.domain;
 
-public class Sancion {
+import org.Iteracion4.dao.DriverDao;
+import org.Iteracion4.dao.GeneralDao;
+
+
+public class Sanction {
 	private int id;
 	private int idExp;
-	private double precio;	
-	private int puntos;
+	private double amount;	
+	private int points;
+	private Driver sanctionHolder;
 	
-	public double getPrecio() {
-		return precio;
+	public double getAmount() {
+		return amount;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setAmount(double amount) {
+		this.amount = amount;
 	}
 
-	public int getPuntos() {
-		return puntos;
+	public int getPoints() {
+		return points;
 	}
 
-	public void setPuntos(int puntos) {
-		this.puntos = puntos;
+	public void setPoints(int points) {
+		this.points = points;
 	}
 	
 	public int getId() {
@@ -29,23 +35,31 @@ public class Sancion {
 		this.id = id;
 	}
 	
-	public Sancion crearSancion(String dni) {
-		int puntos=calcularPuntos();
-		int precio=calcularPrecio();
-		Sancion sancion=new Sancion();
-		ConductorDao dao=new ConductorDao();
-		Conductor conductor=dao.findByDni(dni);
-		sancion.setPersona(conductor);
-		sancion.setPuntos(puntos);
-		sancion.setPrecio(precio);
-		GeneralDao<Sancion> daoSancion=new GeneralDao<>();
-		daoSancion.insert(sancion);
-		return sancion;
+	public Sanction createSanctionFor(String dni) {
+		int points=calculatePoints();
+		int amount=calculateAmount();
+		Sanction sanction=new Sanction();
+		DriverDao dao=new DriverDao();		
+		Driver driver = dao.findByDni(dni);		
+		sanction.setSanctionHolder(driver);
+		sanction.setPoints(points);
+		sanction.setAmount(amount);
+		GeneralDao<Sanction> daoSanction=new GeneralDao<Sanction>();
+		daoSanction.insert(sanction);
+		return sanction;
 	}
 	
-	private int calcularPuntos() {
-		double speed=Expediente.getFotografia().getVel();
-		double speedMax=Expediente.getFotografia().getVelmax();
+	public void setSanctionHolder(Driver sanctionHolder) {
+		this.sanctionHolder = sanctionHolder;
+	}
+	
+	public SanctionHolder getSanctionHolder() {
+		return sanctionHolder;
+	}
+	
+	private int calculatePoints() {
+		double speed=Inquiry.getFotografia().getVel();
+		double speedMax=Inquiry.getFotografia().getVelmax();
 
 		if (speedMax==30) {
 			if (speed>=31 && speed<=50) 
@@ -132,9 +146,9 @@ public class Sancion {
 		return 0;
 	}
 
-	private int calcularPrecio() {
-		double speed=Expediente.getFotografia().getVel();
-		double speedMax=Expediente.getFotografia().getVelmax();
+	private int calculateAmount() {
+		double speed=Inquiry.getFotografia().getVel();
+		double speedMax=Inquiry.getFotografia().getVelmax();
 		
 		if (speedMax==30) {
 			if (speed>=31 && speed<=50) 

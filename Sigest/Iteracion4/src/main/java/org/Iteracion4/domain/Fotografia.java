@@ -1,20 +1,30 @@
 package org.Iteracion4.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Fotografia {
 	
+	@Id
+	@GeneratedValue
 	private int id;
-	private String matricula;
+	private String license;
 	private double vel;
 	private double velmax;
-	private String localizacion;
+	private String location;
 	
-	public Fotografia(int id, String matricula, double vel, double velmax, String localizacion) {
+	protected Fotografia() {
+	}
+
+	public Fotografia(int id, String license, double vel, double velmax, String location) {
 		super();
 		this.id = id;
-		this.matricula = matricula;
+		this.license = license;
 		this.vel = vel;
 		this.velmax = velmax;
-		this.localizacion = localizacion;
+		this.location = location;
 	}
 
 	public int getId() {
@@ -25,12 +35,12 @@ public class Fotografia {
 		this.id = id;
 	}
 
-	public String getMatricula() {
-		return matricula;
+	public String getLicense() {
+		return license;
 	}
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+	public void setLicense(String license) {
+		this.license = license;
 	}
 
 	public double getVel() {
@@ -49,12 +59,12 @@ public class Fotografia {
 		this.velmax = velmax;
 	}
 
-	public String getLocalizacion() {
-		return localizacion;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setLocalizacion(String localizacion) {
-		this.localizacion = localizacion;
+	public void setlocation(String location) {
+		this.location = location;
 	}
 	
 	

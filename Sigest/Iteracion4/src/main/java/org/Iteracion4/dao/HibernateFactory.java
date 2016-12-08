@@ -1,5 +1,6 @@
-package dao;
+package org.Iteracion4.dao;
 
+import org.dom4j.*;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.apache.commons.logging.*;
@@ -7,7 +8,9 @@ import org.apache.commons.logging.*;
 public class HibernateFactory {
     private static SessionFactory sessionFactory;
     private static Log log = LogFactory.getLog(HibernateFactory.class);
-
+    
+    
+    
     /**
      * Constructs a new Singleton SessionFactory
      * @return
@@ -81,6 +84,7 @@ public class HibernateFactory {
         Configuration configuration = new Configuration();
         configuration.configure();
         sessionFactory = configuration.buildSessionFactory();
+    	
         return sessionFactory;
     }
 }

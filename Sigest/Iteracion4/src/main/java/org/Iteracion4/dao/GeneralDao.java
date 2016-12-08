@@ -1,4 +1,4 @@
-package dao;
+package org.Iteracion4.dao;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;

@@ -22,5 +22,13 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apachecommons"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Javax"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaxpersistence"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/apacheloggin"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/xml"/>
+	<classpathentry kind="con" path="org.eclipse.datatools.connectivity.jdt.DRIVERLIBRARY/MySQL JDBC Driver"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

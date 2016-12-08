@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 06-dic-2016 13:46:42 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="org.Iteracion4.domain.Inquiry" table="INQUIRY">
+        <id name="id" type="int" access="field">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="idExp" type="int">
+            <column name="IDEXP" />
+        </property>
+        <many-to-one name="owner" class="org.Iteracion4.domain.Owner" fetch="join">
+            <column name="OWNER" />
+        </many-to-one>
+        <property name="location" type="java.lang.String" access="field">
+            <column name="LOCATION" />
+        </property>
+        <property name="speed" type="double" access="field">
+            <column name="SPEED" />
+        </property>
+        <property name="maxSpeed" type="double" access="field">
+            <column name="MAXSPEED" />
+        </property>
+        <one-to-one name="sanction" class="org.Iteracion4.domain.Sanction" access="field"></one-to-one>
+    </class>
+</hibernate-mapping>
